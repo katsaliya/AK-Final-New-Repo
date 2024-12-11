@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - 5Star</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <!--    <script src="/scripts/header.js" defer></script>-->
+</head>
+<body>
+
+    <!--Top Navigation Bar-->
+    <nav class="red-nav">
+        <!-- 5STAR Logo -->
+        <div class="logo">
+            <a href="/"><img src="images/5stars.png" alt="Logo"></a>
+        </div>
+
+    </nav>
+
+    <!-- Most Recently Popping Places-->
+    <div class="form-container">
+
+        <div class="up-form">
+            <div class="text">
+            <h2>Sign Up for FIVEStars</h2>
+            <h4>HELP THE PARTY ANIMALS PARTY HARD</h4>
+            <p>By continuing, you agree to 5Star’s Terms of Service</p>
+            <p>and acknowledge 5Star’s Privacy Policy</p>
+            </div>
+            <form>
+                <div class="name">
+                <div class="input-group">
+                    <div class="first-name">
+                    <label for = "first-name"></label>
+                    <input type="text" id="first-name" name="first-name" placeholder="FIRST NAME" class="box" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="last-name">
+                        <label for = "last-name"></label>
+                        <input type="text" id="last-name" name="last-name" placeholder="LAST NAME" class="box" required>
+                    </div>
+                </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="email">
+                        <label for = "email"></label>
+                        <input type="email" id="email" name="email" placeholder="EMAIL" class="box" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="password">
+                        <label for = "password"></label>
+                        <input type="password" id="password" name="password" placeholder="PASSWORD" class="box" minlength="8" required>
+                        <small id="password-errorA" style="color: red; display: none;">Password must be at least 8 characters long.</small>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="confirm-password">
+                        <label for = "confirm-password"></label>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="CONFIRM PASSWORD" class="box" minlength="8" required>
+                        <small id="password-errorB" style="color: red; display: none;">Passwords do not match.</small>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit">SIGN UP</button>
+            </form>
+            <div class="text">
+                <p>Already on 5Star? <a href="/log-in">Login</a></p>
+            </div>
+
+        </div>
+
+        <div class="side-logo">
+            <img src="images/logo.png" alt="Logo">
+        </div>
+    </div>
+
+<footer class="footer">
+    <p>&#9734;&#9734;&#9734;&#9734;&#9734; MADE BY AND FOR GATORS &hearts; </p>
+</footer>
+</body>
+</html>

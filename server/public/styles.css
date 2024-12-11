@@ -1,0 +1,564 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #77001c;
+}
+
+.banner{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 500px;
+    background-image: url('images/banner.png'); /* Add your desired background image */
+    background-size: 100% 500px; /* Ensures the background image covers the entire viewport */
+    background-position: top; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents tiling of the image */
+    object-fit: cover;
+    font-family: "Helvetica Neue";
+
+}
+
+.index-nav{
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    align-items: center;
+    justify-content: space-between; /* Space items across the navbar */
+}
+
+.left-logo img{
+    padding: 20px 20px;
+    width: 175px;
+    height: auto;
+    cursor: pointer;
+}
+
+.search-bar{
+    display: flex;
+    gap: 2px;
+}
+
+.dropdown-cat, .dropdown-loc{
+    padding-top: 5px;
+}
+.dropdown-cat select {
+    margin-top: 5px;
+    width: 300px; /* Widen the input field */
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    color: grey;
+}
+.dropdown-loc select {
+    margin-top: 5px;
+    width: 150px; /* Widen the input field */
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    color: grey;
+}
+
+.search-button{
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.search-button img {
+    width: 30px;
+    padding-left: 4px;
+    height: auto;
+}
+
+.search-button:hover img {
+    opacity: 0.8;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    margin-right: 25px;
+    gap: 20px;
+    color: whitesmoke;
+    font-family: "Telugu Sangam MN", sans-serif;
+}
+
+li{
+    padding: 10px 10px 5px;
+    border-radius: 5px;
+}
+li:hover{
+    background-color: #77001c;
+    color: white;
+    cursor: pointer;
+}
+
+.log-in{
+    background-color: rgba(245, 245, 245, 0.41);
+}
+
+.sign-up{
+    background-color: rgba(119, 0, 28, 0.7);
+}
+
+.container{
+    padding-top: 0;
+    font-family: "Helvetica Neue";
+
+}
+
+.about {
+    padding: 20px 360px;
+    text-align: center;
+    background-color: whitesmoke;
+    color: #77001c;
+}
+
+.about h3 {
+    font-size: 30px; /* Larger font size for the heading */
+    margin-bottom: 20px; /* Add spacing below the heading */
+}
+
+.about p {
+    font-size: 16px; /* Standard font size for text */
+    line-height: 1.6; /* Improve readability */
+    margin-bottom: 20px; /* Add spacing between paragraphs */
+}
+
+.recent-places{
+    width: 100%;
+    height: 750px;
+    background-color: #77001c;
+    color: whitesmoke;
+    font-family: "Helvetica Neue";
+}
+
+.poppin-title{
+    padding-bottom: 0;
+}
+
+.poppin-title img{
+    width: 500px;
+    padding-left: 4px;
+    height: 100px;
+}
+
+
+.poppin-grid{
+    display: flex; /* Flexbox for vertical layout */
+    flex-direction: column; /* Stack rows vertically */
+    border: 1px solid whitesmoke ;
+    border-radius: 100px;
+    margin: 0 60px;
+}
+
+.row{
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: center;
+    gap: 70px; /* Center items horizontally */
+    margin: 20px;
+}
+.poppin-place{
+    border: 1px solid whitesmoke ;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 300px
+}
+
+.poppin-img img{
+    width: 300px;
+    height: 150px;
+    object-fit: cover;
+    padding: 10px 10px 0 10px;
+    border-radius: 50px;
+}
+
+.poppin-dets{
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+
+.footer {
+    width: 100%; /* Full width of the viewport */
+    color: #ffffff; /* White text */
+    font-size: 13px;
+    text-align: right; /* Center-align the content */
+    bottom: 0; /* Aligns it at the bottom */
+    font-family: "Helvetica Neue";
+    padding: 5px 10px;
+
+
+}
+
+
+
+
+
+
+/*Log in / Sign up*/
+
+.red-nav{
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    align-items: center;
+    justify-content: space-between; /* Space items across the navbar */
+    color: white;
+}
+
+.red-nav .logo img{
+    width: 175px; /* Set the size of the logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 0; /* Ensure no margin around the image */
+    padding: 10px; /* Ensure no padding around the image */
+    cursor: pointer; /* Make the logo clickable */
+    display: block; /* Prevent inline spacing issues */
+}
+
+.red-nav .nav-list .log-in{
+    background-color: rgba(245, 245, 245, 0.41);
+}
+
+.red-nav .nav-list .sign-up{
+    background-color: rgba(62, 0, 5, 0.74);
+}
+
+.red-nav .nav-list li:hover{
+    background-color: #77001c;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.side-logo img{
+    width: 400px;
+    height: auto;
+    margin-right: 0;
+    padding: 10px;
+    display: block;
+
+}
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 87vh; /* Example: full viewport height */
+    width: 100%;
+
+}
+
+.up-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.up-form .text h4{
+    padding-bottom: 7px;
+}
+.up-form .text p{
+    font-size: 11px;
+}
+
+form {
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.up-form .text {
+    font-family: "Helvetica Neue";
+}
+
+form .name {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: "Helvetica Neue";
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+.up-form button {
+    background-color: rgba(62, 0, 5, 0.71);
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.up-form button:hover {
+    background-color: rgb(62, 0, 5);
+    color: white;
+}
+
+
+
+/*Review form page WHERE*/
+.where-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.where-form .text {
+    font-family: "Helvetica Neue";
+}
+.where-form h4{
+    padding-bottom: 7px;
+}
+.where-form h2{
+    font-size: 50px;
+}
+.where-form p{
+    font-size: 11px;
+}
+
+/* Container for the search dropdown */
+.search-where {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+/* Style for the dropdown input */
+.dropdown input {
+    width: 300px; /* Widen the input field */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Focus styles */
+.dropdown input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+/* Style for the label */
+.dropdown label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+.dropdown {
+    width: 300px;
+}
+
+.star-rating{
+    display: flex;
+    flex-direction: column;
+    font-family: "Helvetica Neue";
+    font-weight: bold;
+    padding-bottom: 0;
+}
+
+.stars {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 0;
+
+}
+
+.describe{
+    display: flex;
+    flex-direction: column;
+}
+
+.describe label {
+    display: block;
+    font-size: 20px; /* Adjust font size for the label */
+    font-weight: bold;
+    font-family: "Times New Roman";
+    margin-bottom: 8px;
+}
+
+.describe textarea {
+    width: 400px; /* Adjust width of the textarea */
+    max-width: 500px; /* Optional: set a maximum width */
+    height: 200px; /* Set height explicitly */
+    font-size: 14px; /* Adjust font size inside the text area */
+    color: #333;
+    padding: 10px; /* Padding inside the textarea */
+    border: 1px solid #ccc; /* Border styling */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Background color */
+    resize: vertical; /* Allow vertical resizing but prevent horizontal resizing */
+    box-sizing: border-box; /* Include padding in width and height calculations */
+}
+
+.post button{
+    width: 100%;
+    padding: 12px;
+    background-color: #77001c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bolder;
+    transition: background-color 0.3s ease;
+}
+
+.post button:hover {
+    background-color: rgb(62, 0, 5);
+    color: white;
+}
+
+
+
+
+/*NIGHTLIFE PAGE*/
+main{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /*align-items: center;*/
+    justify-content: center;
+    background: #77001c;
+    /*border: 1px solid whitesmoke ;*/
+
+}
+
+.map-container{
+    /*border: 1px solid whitesmoke ;*/
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0 0 0 ;
+
+}
+.map-container img{
+    border: 5px solid lightyellow ;
+    border-radius: 30px;
+    width: 700px;
+}
+
+.nightlife-grid{
+    /*border: 1px solid whitesmoke ;*/
+    display: grid;
+    flex-direction: column;
+    /*gap: 10px;*/
+    padding: 40px 40px 40px 0;
+}
+
+.place{
+    /*border: 1px solid whitesmoke ;*/
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    width: 650px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+    padding: 10px
+}
+
+.place img{
+    /*border: 1px solid whitesmoke ;*/
+    width: 200px;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.place-dets{
+    padding: 10px 10px;
+    width: 40%;
+    color: whitesmoke;
+}
+
+.place-info{
+    /*border: 1px solid whitesmoke ;*/
+    margin: 10px 0 0 0;
+}
+
+.place-rate{
+    /*border: 1px solid whitesmoke ;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 70px;
+    color: lightyellow;
+    font-size: 45px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

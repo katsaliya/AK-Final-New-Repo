@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100px;
+    background: rgba(119, 0, 28, 0.7);
+
+}
+
+.index-nav{
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    align-items: center;
+    justify-content: space-between; /* Space items across the navbar */
+}
+
+.left-logo img{
+    padding: 20px 20px;
+    width: 175px;
+    height: auto;
+    cursor: pointer;
+}
+
+.search-bar{
+    display: flex;
+    font-family: "Helvetica Neue";
+    gap: 2px;
+}
+
+.dropdown-cat select {
+    margin-top: 5px;
+    width: 300px; /* Widen the input field */
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    color: grey;
+}
+.dropdown-loc select {
+    margin-top: 5px;
+    width: 150px; /* Widen the input field */
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    color: grey;
+}
+
+.search-button{
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.search-button img {
+    width: 30px;
+    padding-left: 4px;
+    height: auto;
+}
+
+.search-button:hover img {
+    opacity: 0.8;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    margin-right: 25px;
+    gap: 20px;
+    color: whitesmoke;
+    font-family: "Telugu Sangam MN", sans-serif;
+}
+
+li{
+    padding: 10px 10px 5px;
+    border-radius: 5px;
+}
+li:hover{
+    background-color: #77001c;
+    color: white;
+    cursor: pointer;
+}
+
+.log-in{
+    background-color: rgba(245, 245, 245, 0.41);
+}
+
+.sign-up{
+    background-color: rgba(119, 0, 28, 0.7);
+}
+
+main{
+    display: flex;
+    align-items: center;
+    background: #77001c;
+}
+
+.map-container{
+    width: 100%;
+    height: 100vh;
+}
+.map-container img{
+    width: 45%;
+    padding-top: 100px;
+    padding-left: 40px;
+}
+
+.footer {
+    width: 100%; /* Full width of the viewport */
+    background-color: #77001c; /* Dark red background color */
+    color: #ffffff; /* White text */
+    font-size: 13px;
+    text-align: right; /* Center-align the content */
+    padding: 5px 5px; /* Add padding for spacing */
+    bottom: 0; /* Aligns it at the bottom */
+    left: 0; /* Ensures it starts at the left edge */
+    z-index: 1000; /* Stays above other elements if necessary */
+}
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a Review - 5Star</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <!--    <script src="/scripts/header.js" defer></script>-->
+</head>
+<body>
+
+<!--Top Navigation Bar-->
+<nav class="red-nav">
+    <!-- 5STAR Logo -->
+    <div class="logo">
+        <a href="/"><img src="images/5stars.png" alt="Logo"></a>
+    </div>
+
+    <!-- Login, Signup, New Reviews List -->
+    <ul class="nav-list">
+        <li class="log-in"><a href="/log-in">Log In</a></li>
+        <li class="sign-up"><a href="/sign-up">Sign Up</a></li>
+    </ul>
+</nav>
+
+<div class="form-container">
+
+    <div class="where-form">
+        <div class="text">
+            <h4>HELP THE PARTY ANIMALS PARTY HARD</h4>
+            <h2>WHERE ARE YOU NOW?</h2>
+        </div>
+
+        <div class="search-where">
+            <div class="dropdown">
+                <label for="styledInput"></label>
+                <input id="styledInput" autoComplete="on" list="suggestions" placeholder="CLUB OR BAR NAME ">
+                <datalist id="suggestions">
+                    <option>First option</option>
+                    <option>Second Option</option>
+                    <option>Third Option</option>
+                    <option>Fourth Option</option>
+                </datalist>
+            </div>
+        </div>
+
+        <div class="star-rating">
+            <div class="star-title">
+                SELECT YOUR RATING
+            </div>
+            <div class="stars">
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+                <button class="star">&#9734;</button>
+            </div>
+        </div>
+        <div class="describe">
+            <label for="description">Sooo... </label>
+            <textarea id="description" name="description" rows="12" placeholder="LET US KNOW HOW IT'S GOING!"></textarea>
+        </div>
+        <div class="post">
+            <a href="/nightlife"><button type="submit">POST YOUR REVIEW</button></a>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&#9734;&#9734;&#9734;&#9734;&#9734; MADE BY AND FOR GATORS &hearts; </p>
+</footer>
+</body>
+</html>
