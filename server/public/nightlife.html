@@ -45,7 +45,6 @@
         <li class="sign-up"><a href="/sign-up">Sign Up</a></li>
     </ul>
 </nav>
-
 <main>
     <div class="map-container">
         <div class="map">
@@ -54,179 +53,21 @@
     </div>
 
     <div class="nightlife-grid">
-        <div class=place>
+        <% places.forEach(place => { %>
+        <div class="place">
             <div class="place-img">
-                <img src="./images/places.png">
+                <img src="<%= place.photo %>" alt="<%= place.name %>">
             </div>
-
             <div class="place-dets">
-                    <h4>Gaggan Anand</h4>
+                <h4><%= place.name %></h4>
                 <div class="place-info">
-                    <p>HOURS</p>
-                    <p>68 Sukhumvit Soi 31,
-                        Khlong Toei Nuea, Watthana,
-                        Bangkok 10110, Thailand</p>
-                    <p>+66 98 883 1022</p>
-
+                    <p><%= place.address %></p>
+                    <p><%= place.phone %></p>
                 </div>
             </div>
-
-            <div class="place-rate">
-                <p>5.5&#9734;</p>
-            </div>
         </div>
-
-        <div class=place>
-            <div class="place-img">
-                <img src="./images/places.png">
-            </div>
-
-            <div class="place-dets">
-                <h4>Gaggan Anand</h4>
-                <div class="place-info">
-                    <p>HOURS</p>
-                    <p>68 Sukhumvit Soi 31,
-                        Khlong Toei Nuea, Watthana,
-                        Bangkok 10110, Thailand</p>
-                    <p>+66 98 883 1022</p>
-
-                </div>
-            </div>
-
-            <div class="place-rate">
-                <p>5&#9734;</p>
-            </div>
-        </div>
-        <div class=place>
-            <div class="place-img">
-                <img src="./images/places.png">
-            </div>
-
-            <div class="place-dets">
-                <h4>Gaggan Anand</h4>
-                <div class="place-info">
-                    <p>HOURS</p>
-                    <p>68 Sukhumvit Soi 31,
-                        Khlong Toei Nuea, Watthana,
-                        Bangkok 10110, Thailand</p>
-                    <p>+66 98 883 1022</p>
-
-                </div>
-            </div>
-
-            <div class="place-rate">
-                <p>5&#9734;</p>
-            </div>
-        </div>
-        <div class=place>
-            <div class="place-img">
-                <img src="./images/places.png">
-            </div>
-
-            <div class="place-dets">
-                <h4>Gaggan Anand</h4>
-                <div class="place-info">
-                    <p>HOURS</p>
-                    <p>68 Sukhumvit Soi 31,
-                        Khlong Toei Nuea, Watthana,
-                        Bangkok 10110, Thailand</p>
-                    <p>+66 98 883 1022</p>
-
-                </div>
-            </div>
-
-            <div class="place-rate">
-                <p>5&#9734;</p>
-            </div>
-        </div>
-        <div class=place>
-            <div class="place-img">
-                <img src="./images/places.png">
-            </div>
-
-            <div class="place-dets">
-                <h4>Gaggan Anand</h4>
-                <div class="place-info">
-                    <p>HOURS</p>
-                    <p>68 Sukhumvit Soi 31,
-                        Khlong Toei Nuea, Watthana,
-                        Bangkok 10110, Thailand</p>
-                    <p>+66 98 883 1022</p>
-
-                </div>
-            </div>
-
-            <div class="place-rate">
-                <p>5&#9734;</p>
-            </div>
-        </div>
-        <div class=place>
-            <div class="place-img">
-                <img src="./images/places.png">
-            </div>
-
-            <div class="place-dets">
-                <h4>Gaggan Anand</h4>
-                <div class="place-info">
-                    <p>HOURS</p>
-                    <p>68 Sukhumvit Soi 31,
-                        Khlong Toei Nuea, Watthana,
-                        Bangkok 10110, Thailand</p>
-                    <p>+66 98 883 1022</p>
-
-                </div>
-            </div>
-
-            <div class="place-rate">
-                <p>5&#9734;</p>
-            </div>
-        </div>
-        <div class=place>
-            <div class="place-img">
-                <img src="./images/places.png">
-            </div>
-
-            <div class="place-dets">
-                <h4>Gaggan Anand</h4>
-                <div class="place-info">
-                    <p>HOURS</p>
-                    <p>68 Sukhumvit Soi 31,
-                        Khlong Toei Nuea, Watthana,
-                        Bangkok 10110, Thailand</p>
-                    <p>+66 98 883 1022</p>
-
-                </div>
-            </div>
-
-            <div class="place-rate">
-                <p>5&#9734;</p>
-            </div>
-        </div>
-        <div class=place>
-            <div class="place-img">
-                <img src="./images/places.png">
-            </div>
-
-            <div class="place-dets">
-                <h4>Gaggan Anand</h4>
-                <div class="place-info">
-                    <p>HOURS</p>
-                    <p>68 Sukhumvit Soi 31,
-                        Khlong Toei Nuea, Watthana,
-                        Bangkok 10110, Thailand</p>
-                    <p>+66 98 883 1022</p>
-
-                </div>
-            </div>
-
-            <div class="place-rate">
-                <p>5&#9734;</p>
-            </div>
-        </div>
-
+        <% }) %>
     </div>
-
-
 </main>
 <footer class="footer">
     <p>&#9734;&#9734;&#9734;&#9734;&#9734; MADE BY AND FOR GATORS &hearts; </p>

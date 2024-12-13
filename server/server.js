@@ -49,18 +49,20 @@ app.get('/write-a-review', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'newreview.html'));
 });
 
-app.get('/nightlife', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'nightlife.html'));
-});
-
-// Route for rendering EJS template
 // app.get('/nightlife', (req, res) => {
-//     const data = {
-//         title: 'Nightlife',
-//         places: [{ name: 'Club A' }, { name: 'Club B' }]
-//     };
-//     res.render('nightlife', data); // 'nightlife' matches the file in the views folder
+//     res.sendFile(path.join(__dirname, 'public', 'nightlife.html'));
 // });
+
+// Route to render nightlife page
+app.get('/nightlife', async (req, res) => {
+    try {
+        const { rows: places } = await pool.query('SELECT * FROM place');
+        res.render('nightlife', { places });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server error');
+    }
+});
 
 
 
