@@ -1,4 +1,5 @@
 import { pool } from '../config/database.js';
+// MUKISA
 
 const getVenues = async () => {
     const result = await pool.query('SELECT * FROM places');

@@ -2,6 +2,8 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { backendRouter } from './routes/api.js';
+import { getReviewsForVenues, getVenues } from './data/venues.js';
+import { Console } from 'console';
 
 const app = express();
 
@@ -61,6 +63,40 @@ app.get('/nightlife', (req, res) => {
 //     };
 //     res.render('nightlife', data); // 'nightlife' matches the file in the views folder
 // });
+
+
+
+//forms path (TODO) MUKISA
+app.get('/ ', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', ' '));
+});
+
+// ejs route render for template with venue data (TODO) MUKISA
+app.get(' ', async (req, res) => {
+    try{
+        const venues = await getVenues();
+        console.log(venues);
+        res.render("venues: ", {venues});
+    } catch (e) {
+        console.error('Error fetching venue data:', e);
+        res.status(500).send('Server Error'); 
+    }
+});
+
+// get venue by id with details page (TODO) MUKISA
+app.get('/ /:id ', async (req, res) => {
+    const venueId = parseInt(req.params.dictionary, 10);
+
+    try {
+         const venue = await getVenue(venueId);
+         const reviews = await getReviewsForVenues(venueId);
+
+    } catch (e) {
+        console.log();
+        res.status(500).send('Server Error');
+    }
+});
+
 
 // Start the server
 const PORT = process.env.PORT || 3000;

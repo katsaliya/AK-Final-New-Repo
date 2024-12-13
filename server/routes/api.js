@@ -1,10 +1,11 @@
 import express from 'express';
 import { createVenue, getReviewsForVenues, getVenues } from '../data/venues.js';
+//MUKISA
 
 //declare router
 const router = express.Router();
 
-//get venue
+//get venue (TODO)
 router.get('/ ', async (req, res) => {
     try{
         const venues = await getVenues();
@@ -13,7 +14,7 @@ router.get('/ ', async (req, res) => {
     }
 });
 
-// get venueById
+// get venueById (TODO)
 router.get('/ /id', async (req, res) => {
     const venueId = parseInt(req.params.dictionary, 10);
     try{
@@ -33,7 +34,7 @@ router.get('/ /id', async (req, res) => {
     }
 });
 
-// post venue
+// post venue (TODO)
 router.post('/ ', async (req, res)=>{
     console.log('Recieved form data: ', req.body);
     const {name, rating, reviews, address, image} = req.body;
@@ -48,7 +49,7 @@ router.post('/ ', async (req, res)=>{
     }
 });
 
-// delete venueById
+// delete venueById (TODO)
 router.delete('/ /:id', async (req, res)=>{
     const venueId = parseInt(req.params.id, 10);
 
