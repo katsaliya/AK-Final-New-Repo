@@ -4,7 +4,7 @@ import { pool } from '../config/database.js';
 const getReviews = async () => {
     try {
         const res = await pool.query(
-            'SELECT * FROM reviews WHERE venues_id = $1',
+            'SELECT * FROM reviews WHERE venues_id = $1 ORDER BY id ASC',
         );
         return res.rows[0]; // Returns the first matching review or undefined if not found
     } catch (error) {
@@ -13,7 +13,7 @@ const getReviews = async () => {
     }
 };
 
-const getReviewById = async (venueid, reviewId) => {
+const getReviewById = async (venueId, reviewId) => {
     try {
         const res = await pool.query(
             'SELECT * FROM reviews WHERE venues_id = $1 AND id = $2',
@@ -57,12 +57,10 @@ const deleteReview = async(venueId, reviewId) => {
     }
 }
 
-
 const getVenues = async () => {
     try {
         const res = await pool.query(
-            'SELECT * FROM venues',
-            [id]
+            'SELECT * FROM venues ORDER BY ID ASC',
         );
         return res.rows[0]; // Returns the venue if found, otherwise undefined
     } catch (error) {
