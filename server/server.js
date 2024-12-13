@@ -3,15 +3,16 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { backendRouter } from './routes/api.js';
 import { getReviewsForVenues, getVenues } from './data/venues.js';
-import { Console } from 'console';
+import { authRouter } from './auth.js';
 
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+//allows the parsing + renders of json data
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from the "public" folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -20,12 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'ejs');
 
-//allows the parsing + renders of json data
-app.use(express.urlencoded({ extended: true })); // Parse form submissions
-app.use(express.json()); // Parse JSON request bodies
-
 // Mount the API router at the /api prefix
 app.use('/api', backendRouter);
+app.use("/auth", authRouter);
 
 // Centralized error handler
 app.use((err, req, res, next) => {
