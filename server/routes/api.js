@@ -1,5 +1,5 @@
 import express from 'express';
-import { getReview, getReviews, createReview, deleteReview } from '../data/reviews.js';
+import { createReview, deleteReview } from '../data/reviews.js';
 import { getVenuesById } from '../data/reviews.js';
 import { getReviewById } from '../data/reviews.js';
 //MUKISA
