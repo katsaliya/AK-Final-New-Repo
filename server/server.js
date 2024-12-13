@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { backendRouter } from './routes/api.js';
-import { getReviewsForVenues, getVenues } from './data/venues.js';
+import { getReviewById, getReviews, getVenues, getVenuesById } from './data/reviews.js';
 import { authRouter } from './auth.js';
 
 const app = express();
@@ -72,25 +72,59 @@ app.get('/ ', (req, res) => {
 // ejs route render for template with venue data (TODO) MUKISA
 app.get(' ', async (req, res) => {
     try{
-        const venues = await getVenues();
-        console.log(venues);
-        res.render("venues: ", {venues});
+        const reviews = await getReviews();
+        console.log(reviews);
+        res.render("reviews: ", {reviews});
     } catch (e) {
-        console.error('Error fetching venue data:', e);
+        console.error('Error fetching review data:', e);
         res.status(500).send('Server Error'); 
     }
 });
 
+// API endpoint to get all venues
+app.get('/venues', async (req, res) => {
+    try {
+        const venues = await getVenues();  // Fetch all venues from the database
+        if (venues.length > 0) {
+            res.status(200).json(venues);  // Return the array of venues if found
+        } else {
+            res.status(404).json({ error: 'No venues found' });  // If no venues are found
+        }
+    } catch (error) {
+        console.error('Server error:', error);
+        res.status(500).json({ error: 'Server error' });  // Handle server errors
+    }
+});
+
+
 // get venue by id with details page (TODO) MUKISA
-app.get('/ /:id ', async (req, res) => {
-    const venueId = parseInt(req.params.dictionary, 10);
+app.get('/venues/:id', async (req, res) => {
+    const venueId = parseInt(req.params.id, 10); // Get the venueId from the URL params
+
+    // Validate venueId
+    if (isNaN(venueId)) {
+        return res.status(400).json({ error: 'Invalid venue ID' });
+    }
 
     try {
-         const venue = await getVenue(venueId);
-         const reviews = await getReviewsForVenues(venueId);
+        // Fetch the venue details
+        const venue = await getVenuesById(venueId);
+        
+        if (!venue) {
+            return res.status(404).json({ error: 'Venue not found' });
+        }
+
+        // Fetch the reviews for the venue
+        const reviews = await getReviewById(venueId);
+
+        // Combine venue details with reviews and return it
+        res.status(200).json({
+            venue,
+            reviews
+        });
 
     } catch (e) {
-        console.log();
+        console.error(e);
         res.status(500).send('Server Error');
     }
 });

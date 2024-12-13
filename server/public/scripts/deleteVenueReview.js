@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function(){
     const buttons = document.querySelector('button');
     for(let button of buttons){
         button.addEventListener('click', function(event){
-            let venueId = button.id.split("-")[1];
+            let reviewId = button.id.split("-")[1];
             //TODO
-            fetch(`/api/ /${venueId}` , {
+            fetch(`/api/ /${reviewId}` , {
                 method: 'DELETE',
             })
             .then(res => {

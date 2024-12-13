@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded' , function(){
         const name = document.getElementById("name");
         const rating = document.getElementById('rating');
         const review = document.getElementById('review');
-        const image = document.getElementById('image-url');
 
         //TODO
         fetch('/api/ ', {
