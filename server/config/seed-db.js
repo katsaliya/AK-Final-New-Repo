@@ -61,14 +61,14 @@ let placeData = [
 const dropTables = async () => {
     try {
         await pool.query('DROP TABLE IF EXISTS reviews');
-        await pool.query('DROP TABLE IF EXISTS places');
+        await pool.query('DROP TABLE IF EXISTS venues');
     } catch (error) {
         console.log(error)
     }
 }
 const createTables = async () => {
     await pool.query(`
-        CREATE TABLE IF NOT EXISTS places (
+        CREATE TABLE IF NOT EXISTS venues (
             id SERIAL PRIMARY KEY,
             name VARCHAR(255) NOT NULL,
             phone VARCHAR(20),
@@ -81,7 +81,7 @@ const createTables = async () => {
             id SERIAL PRIMARY KEY,
             rating INTEGER NOT NULL,
             content TEXT,
-            place_id INTEGER REFERENCES places(id) ON DELETE CASCADE
+            venue_id INTEGER REFERENCES places(id) ON DELETE CASCADE
         )
     `);
     console.log('Created tables');
@@ -89,13 +89,13 @@ const createTables = async () => {
 const insertData = async () => {
     try {
         await pool.query(`
-            INSERT INTO placeData (id, name, phone, address, photo)
+            INSERT INTO venueData (id, name, phone, address, photo)
             VALUES
-            ${placeData.map(r => `('${r.name}', '${r.phone}', '${r.address}', '${r.photo}')`).join(', ')}
+            ${venueData.map(r => `('${r.name}', '${r.phone}', '${r.address}', '${r.photo}')`).join(', ')}
         
         `);
         await pool.query(`
-            INSERT INTO reviews (rating, content, place_id) VALUES
+            INSERT INTO reviews (rating, content, venue_id) VALUES
             (5, 'Great food!', 1),
             (4, 'Good service.', 1),
             (3, 'Average experience.', 2),
