@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { backendRouter } from './routes/api.js';
 
 const app = express();
 
@@ -16,6 +17,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Set up EJS view engine
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'ejs');
+
+//allows the parsing + renders of json data
+app.use(express.urlencoded({ extended: true })); // Parse form submissions
+app.use(express.json()); // Parse JSON request bodies
+
+// Mount the API router at the /api prefix
+app.use('/api', backendRouter);
+
+// Centralized error handler
+app.use((err, req, res, next) => {
+    console.error('Unhandled Error:', err);
+    res.status(err.status || 500).send(err.message || 'Server Error');
+});
+
 
 // Routes for static HTML pages
 app.get('/', (req, res) => {
