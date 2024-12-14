@@ -1,56 +1,56 @@
 import { pool } from './database.js';
-let venueData = [
+let venues = [
     {
-        id: 0,
+        //id: 0,
         name: "Vesuvio Cafe",
         address: "255 Columbus Ave, San Francisco, CA 94133",
         phone: "+1 415-362-3370",
         photo: "/images/vesuvioCafe.png"
     },
     {
-        id: 1,
+        //id: 1,
         name: "The Saloon",
         address: "1232 Grant Ave, San Francisco, CA 94133",
         phone: "+1 415-989-7666",
         photo: "/images/saloon.jpg"
     },
     {
-        id: 2,
+        //id: 2,
         name: "The Internal at Long Now",
         address: "Fort Mason Center, 2 Marina Blvd, San Francisco, CA 94123",
         phone: "+1 415-561-6582",
         photo: "/images/internal.jpg"
     },
     {
-        id: 3,
+        //id: 3,
         name: "Comet Club",
         address: "3111 Fillmore St, San Francisco, CA 94123",
         phone: "+1 415-567-5589",
         photo: "/images/cometclub.png"
     },
     {
-        id: 4,
+        //id: 4,
         name: "Twin Peaks Tavern",
         address: "401 Castro St, San Francisco, CA 94114",
         phone: "+1 415-864-9470",
         photo: "/images/twinpeaks.png"
     },
     {
-        id: 5,
+        //id: 5,
         name: "Beaux",
         address: "2344 Market St, San Francisco, CA 94114",
         phone: "+1 415-863-4027",
         photo: "/images/beaux.png"
     },
     {
-        id: 6,
+        //id: 6,
         name: "Trick Dog",
         address: "3010 20th St, San Francisco, CA 94110",
         phone: "+1 415-471-2999",
         photo: "/images/TrickDog.png"
     },
     {
-        id: 8,
+        //id: 7,
         name: "Public Works",
         address: "161 Erie St, San Francisco, CA 94103",
         phone: "+1 415-932-0955",
@@ -96,9 +96,9 @@ const createTables = async () => {
 const insertData = async () => {
     try {
         await pool.query(`
-            INSERT INTO venueData (id, name, phone, address, photo)
+            INSERT INTO venues (name, phone, address, photo)
             VALUES
-            ${venueData.map(r => `('${r.name}', '${r.phone}', '${r.address}', '${r.photo}')`).join(', ')}
+            ${venues.map(r => `('${r.name}', '${r.phone}', '${r.address}', '${r.photo}')`).join(', ')}
         
         `);
         await pool.query(`
