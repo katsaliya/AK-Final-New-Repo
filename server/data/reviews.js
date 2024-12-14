@@ -1,12 +1,14 @@
 import { pool } from '../config/database.js';
 // MUKISA
 
-const getReviews = async () => {
+//changes made in the logic and code
+const getReviews = async (venueId) => {
     try {
         const res = await pool.query(
-            'SELECT * FROM reviews WHERE venues_id = $1 ORDER BY id ASC',
+            'SELECT * FROM reviews WHERE venue_id = $1 ORDER BY id ASC',
+            [venueId]
         );
-        return res.rows[0]; // Returns the first matching review or undefined if not found
+        return res.rows; // Returns the first matching review or undefined if not found
     } catch (error) {
         console.error('Error fetching reviews under venue:', error);
         throw error;
@@ -31,7 +33,7 @@ const createReview = async(venueId, reviewData) => {
 
     try {
         const res = await pool.query(
-            'INSERT INTO reviews (venues_id, review_text, rating) VALUES ($1, $2, $3) RETURNING *',
+            'INSERT INTO reviews (venue_id, review_text, rating) VALUES ($1, $2, $3) RETURNING *',
             [venueId, reviewText, rating]
         );
         return res.rows[0]; // Return the newly created review
@@ -44,7 +46,7 @@ const createReview = async(venueId, reviewData) => {
 const deleteReview = async(venueId, reviewId) => {
     try {
         const res = await pool.query(
-            'DELETE FROM reviews WHERE venues_id = $1 AND id = $2 RETURNING *',
+            'DELETE FROM reviews WHERE venue_id = $1 AND id = $2 RETURNING *',
             [venueId, reviewId]
         );
         if (res.rowCount === 0) {

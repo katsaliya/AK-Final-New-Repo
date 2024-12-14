@@ -62,6 +62,7 @@ const dropTables = async () => {
     try {
         await pool.query('DROP TABLE IF EXISTS reviews');
         await pool.query('DROP TABLE IF EXISTS venues');
+        await pool.query('DROP TABLE IF EXISTS users'); 
     } catch (error) {
         console.log(error)
     }
@@ -84,6 +85,12 @@ const createTables = async () => {
             venue_id INTEGER REFERENCES venues(id) ON DELETE CASCADE
         )
     `);
+
+    await pool.query(`CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        username VARCHAR(255) UNIQUE NOT NULL,
+        hashedPassword VARCHAR(255) NOT NULL
+    )`);
     console.log('Created tables');
 };
 const insertData = async () => {

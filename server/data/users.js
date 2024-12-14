@@ -1,8 +1,8 @@
 import { pool } from "../config/database.js";
 
-const getUser = async (user) => {
+const getUser = async (username) => {
     try {
-        const res = await pool.query('SELECT * FROM users WHERE username=1;', {user})
+        const res = await pool.query('SELECT * FROM users WHERE username=1;', {username})
         if(res.rows.length === 0){
             throw new Error("user not found");
         } 
@@ -12,9 +12,9 @@ const getUser = async (user) => {
     }
 };
 
-const createUser = async (user, hashedPassword) => {
+const createUser = async (username, hashedPassword) => {
     try {
-        const res = await pool.query('INSERT INTO users (username, hashedPassword) VALUES ($1, $2);', [user, hashedPassword]);
+        const res = await pool.query('INSERT INTO users (username, hashedPassword) VALUES ($1, $2);', [username, hashedPassword]);
         return res.rows[0];
     } catch (e) {
         console.error(e.message);
