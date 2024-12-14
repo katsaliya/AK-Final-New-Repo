@@ -1,5 +1,5 @@
 import { pool } from './database.js';
-let placeData = [
+let venueData = [
     {
         id: 0,
         name: "Vesuvio Cafe",

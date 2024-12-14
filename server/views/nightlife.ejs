@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--    <meta charset="UTF-8">-->
-    <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <title>Nightlife! - 5Star</title>
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="styles.css">
@@ -53,20 +51,20 @@
     </div>
 
     <div class="nightlife-grid">
-        <% places.forEach(place => {
-            <div class="place">
+        <% venues.forEach(venue => { %>
+            <div class="place" data-id="<%= venue.id%>">
                 <div class="place-img">
-                    <img src="<%= place.photo %>" alt="<%= place.name %>">
+                    <img src="<%= venue.photo %>" alt="<%= venue.name %>">
                 </div>
                 <div class="place-dets">
-                    <h4><%= place.name %></h4>
+                    <h4><%= venue.name %></h4>
                     <div class="place-info">
-                        <p><%= place.address %></p>
-                        <p><%= place.phone %></p>
+                        <p><%= venue.address %></p>
+                        <p><%= venue.phone %></p>
                     </div>
                 </div>
             </div>
-         }) %>
+        <% }) %>
     </div>
 </main>
 <footer class="footer">

@@ -18,8 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Set up EJS view engine
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // Mount the API router at the /api prefix
 app.use('/api', backendRouter);
@@ -30,7 +30,6 @@ app.use((err, req, res, next) => {
     console.error('Unhandled Error:', err);
     res.status(err.status || 500).send(err.message || 'Server Error');
 });
-
 
 // Routes for static HTML pages
 app.get('/', (req, res) => {
@@ -49,28 +48,6 @@ app.get('/write-a-review', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'newreview.html'));
 });
 
-// app.get('/nightlife', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public', 'nightlife.html'));
-// });
-
-// Route to render nightlife page
-app.get('/nightlife', async (req, res) => {
-    try {
-        const { rows: places } = await pool.query('SELECT * FROM place');
-        res.render('nightlife', { places });
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Server error');
-    }
-});
-
-
-
-//forms path (TODO) MUKISA
-app.get('/ ', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', ' '));
-});
-
 // ejs route render for template with venue data (TODO) MUKISA
 app.get(' ', async (req, res) => {
     try{
@@ -79,61 +56,68 @@ app.get(' ', async (req, res) => {
         res.render("reviews: ", {reviews});
     } catch (e) {
         console.error('Error fetching review data:', e);
-        res.status(500).send('Server Error'); 
-    }
-});
-
-// API endpoint to get all venues
-app.get('/venues', async (req, res) => {
-    try {
-        const venues = await getVenues();  // Fetch all venues from the database
-        if (venues.length > 0) {
-            res.status(200).json(venues);  // Return the array of venues if found
-        } else {
-            res.status(404).json({ error: 'No venues found' });  // If no venues are found
-        }
-    } catch (error) {
-        console.error('Server error:', error);
-        res.status(500).json({ error: 'Server error' });  // Handle server errors
-    }
-});
-
-
-// get venue by id with details page (TODO) MUKISA
-app.get('/venues/:id', async (req, res) => {
-    const venueId = parseInt(req.params.id, 10); // Get the venueId from the URL params
-
-    // Validate venueId
-    if (isNaN(venueId)) {
-        return res.status(400).json({ error: 'Invalid venue ID' });
-    }
-
-    try {
-        // Fetch the venue details
-        const venue = await getVenuesById(venueId);
-        
-        if (!venue) {
-            return res.status(404).json({ error: 'Venue not found' });
-        }
-
-        // Fetch the reviews for the venue
-        const reviews = await getReviewById(venueId);
-
-        // Combine venue details with reviews and return it
-        res.status(200).json({
-            venue,
-            reviews
-        });
-
-    } catch (e) {
-        console.error(e);
         res.status(500).send('Server Error');
     }
 });
 
+// API endpoint to get all venues
+app.get('/nightlife', async (req, res) => {
+    try {
+        const venues = await getVenues();  // Fetch all venues from the database
+        if (venues.length > 0) {
+            res.render('nightlife', {venues})
+            res.status(200).json(venues);  // Return the array of venues if found
+        } else {
+            res.status(404).json({error: 'No venues found'});  // If no venues are found
+        }
+    } catch (error) {
+        console.error('Server error:', error);
+        res.status(500).json({error: 'Server error'});  // Handle server errors
+    }
+});
+
+app.get('/venueDetails', async (req, res) => {
+        const venues = await getVenues();  // Fetch all venues from the database
+        res.render('venueDetails', {venues})
+})
+
+
+// get venue by id with details page (TODO) MUKISA
+    app.get('/venues/:id', async (req, res) => {
+        const venueId = parseInt(req.params.id, 10); // Get the venueId from the URL params
+
+        // Validate venueId
+        if (isNaN(venueId)) {
+            return res.status(400).json({error: 'Invalid venue ID'});
+        }
+
+        try {
+            // Fetch the venue details
+            const venue = await getVenuesById(venueId);
+
+            if (!venue) {
+                return res.status(404).json({error: 'Venue not found'});
+            }
+
+            // Fetch the reviews for the venue
+            const reviews = await getReviewById(venueId);
+
+            // Combine venue details with reviews and return it
+            res.status(200).json({
+                venue,
+                reviews
+            });
+
+        } catch (e) {
+            console.error(e);
+            res.status(500).send('Server Error');
+        }
+    });
+
 
 // Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+

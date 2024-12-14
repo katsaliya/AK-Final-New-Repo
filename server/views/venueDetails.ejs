@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--    <meta charset="UTF-8">-->
+    <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>Nightlife! - 5Star</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!--Top Navigation Bar-->
+<nav class="red-nav">
+    <!-- 5STAR Logo -->
+    <div class="logo">
+        <a href="/"><img src="images/5stars.png" alt="Logo"></a>
+    </div>
+
+    <!-- Dual Dropdown Search Bar -->
+    <div class="search-bar">
+        <div class="dropdown-cat">
+            <select id="search-category" name="category">
+                <option value="" disabled selected>What are you looking for?</option>
+                <option value="bars">Bars</option>
+                <option value="clubs">Clubs</option>
+            </select>
+        </div>
+        <div class="dropdown-loc">
+            <select id="search-location"name="location">
+                <option value="" disabled selected>Where?</option>
+                <option value="North Beach">North Beach</option>
+                <option value="Marina">Marina</option>
+                <option value="Mission">Mission</option>
+                <option value="Castro">Castro</option>
+            </select>
+        </div>
+        <button id="search-button" class="search-button">
+            <a href="/nightlife"><img src="images/search.png" alt="search-icon"></a>
+        </button>
+    </div>
+
+    <!-- Login, Signup, New Reviews List -->
+    <ul class="nav-list">
+        <li class="log-in"><a href="/log-in">Log In</a></li>
+        <li class="sign-up"><a href="/sign-up">Sign Up</a></li>
+    </ul>
+</nav>
+<main>
+    <div class="venue-details">
+        <img class="venue-details-img" src="<%= venue.photo %>">
+        <div class="venue-info">
+            <h1><%= venue.name %></h1>
+            <h2><%= venue.address %></h2>
+            <h2><%= venue.phone %></h2>
+
+            <div> Reviews:
+                <% for (let review of reviews) { %>
+                    <div>
+                        <strong>Rating:</strong> <%= review.rating %>/5 <br>
+                        <p><%= review.content %></p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+</main>
+<footer class="footer">
+    <p>&#9734;&#9734;&#9734;&#9734;&#9734; MADE BY AND FOR GATORS &hearts; </p>
+</footer>
+</body>
+</html>
