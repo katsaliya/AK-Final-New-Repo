@@ -81,7 +81,7 @@ const createTables = async () => {
             id SERIAL PRIMARY KEY,
             rating INTEGER NOT NULL,
             content TEXT,
-            venue_id INTEGER REFERENCES places(id) ON DELETE CASCADE
+            venue_id INTEGER REFERENCES venues(id) ON DELETE CASCADE
         )
     `);
     console.log('Created tables');
