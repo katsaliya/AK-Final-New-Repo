@@ -1,8 +1,8 @@
 import express from 'express';
 import { createReview, deleteReview } from '../data/reviews.js';
 import { getVenuesById } from '../data/reviews.js';
-import { getReviewById } from '../data/reviews.js';
-//MUKISA
+import { getReviewsById } from '../data/reviews.js';
+
 
 //declare router
 const router = express.Router();

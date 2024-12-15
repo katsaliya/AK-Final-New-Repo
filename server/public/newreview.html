@@ -37,14 +37,14 @@
                 <label for="styledInput"></label>
                 <input id="styledInput" autoComplete="on" list="suggestions" placeholder="CLUB OR BAR NAME ">
                 <datalist id="suggestions">
-                    <option>Vesuvio Cafe</option>
-                    <option>The Saloon</option>
-                    <option>The Internal at Long Now</option>
-                    <option>Comet Club</option>
-                    <option>Twin Peaks Tavern</option>
-                    <option>Beaux</option>
-                    <option>Trick Dog</option>
-                    <option>Public Works</option>
+                    <option data-id="1">Vesuvio Cafe</option>
+                    <option data-id="2">The Saloon</option>
+                    <option data-id="3">The Internal at Long Now</option>
+                    <option data-id="4">Comet Club</option>
+                    <option data-id="5">Twin Peaks Tavern</option>
+                    <option data-id="6">Beaux</option>
+                    <option data-id="7">Trick Dog</option>
+                    <option data-id="8">Public Works</option>
                 </datalist>
             </div>
         </div>
@@ -66,7 +66,7 @@
             <textarea id="description" name="description" rows="12" placeholder="LET US KNOW HOW IT'S GOING!"></textarea>
         </div>
         <div class="post">
-            <a href="/venueDetails"><button type="submit">POST YOUR REVIEW</button></a>
+            <a href="/venue/<%= venue.id %>" class="place" data-id="<%= venue.id %>"><button type="submit">POST YOUR REVIEW</button></a>
         </div>
     </div>
 </div>

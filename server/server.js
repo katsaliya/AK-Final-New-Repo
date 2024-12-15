@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { backendRouter } from './routes/api.js';
-import { getReviewById, getReviews, getVenues, getVenuesById } from './data/reviews.js';
+import { getReviewsById, getVenues, getVenuesById } from './data/reviews.js';
 import { authRouter } from './auth.js';
 
 const app = express();
@@ -48,23 +48,8 @@ app.get('/write-a-review', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'newreview.html'));
 });
 
-// ejs route render for template with venue data (TODO) MUKISA
-app.get(' ', async (req, res) => {
-    try{
-        const reviews = await getReviews();
-        console.log(reviews);
-        res.render("reviews: ", {reviews});
-    } catch (e) {
-        console.error('Error fetching review data:', e);
-        res.status(500).send('Server Error');
-    }
-});
-
 // API endpoint to get all venues
 app.get('/nightlife', async (req, res) => {
-    // const venues = await getVenues();
-    // console.log(venues);
-    // res.render('nightlife', {venues});
     try {
         const venues = await getVenues();  // Ensure this returns an array
         console.log('Venues: ', venues); // Debug log to see what is returned
@@ -75,44 +60,51 @@ app.get('/nightlife', async (req, res) => {
     }
 });
 
-app.get('/venueDetails', async (req, res) => {
-        const venues = await getVenues();  // Fetch all venues from the database
-        res.render('venueDetails', {venues});
-})
+// get venue by id with details page
+    app.get('/venue/:id', async (req, res) => {
+       //  const venueId = parseInt(req.params.id, 10); // Get the venueId from the URL params
+       //  const venue = await getVenuesById(venueId);
+       //  console.log(venue);
+       // // Validate venueId
+       //  if (venue) {
+       //      const reviews = await getReviewsById(venueId);
+       //      res.render('venueId', {
+       //          venue,
+       //          reviews
+       //      });
+       //  } else {
+       //      res.status(404).send('Venue not found');
+       //  }
 
+        try{
+            const venueId = parseInt(req.params.id, 10);
+            console.log('Parsed venueId: ', venueId);
 
-// get venue by id with details page (TODO) MUKISA
-    app.get('/venues/:id', async (req, res) => {
-        const venueId = parseInt(req.params.id, 10); // Get the venueId from the URL params
-
-        // Validate venueId
-        if (isNaN(venueId)) {
-            return res.status(400).json({error: 'Invalid venue ID'});
-        }
-
-        try {
-            // Fetch the venue details
-            const venue = await getVenuesById(venueId);
-
-            if (!venue) {
-                return res.status(404).json({error: 'Venue not found'});
+            if(!venueId) {
+                return res.status(400).send('Invalid venue ID');
             }
 
-            // Fetch the reviews for the venue
-            const reviews = await getReviewById(venueId);
+            const venue = await getVenuesById(venueId);
+            console.log('Fetched venue: ', venue);
 
-            // Combine venue details with reviews and return it
-            res.status(200).json({
-                venue,
-                reviews
-            });
+            if(!venue) {
+                return res.status(404).send('Venue not found');
+            }
 
-        } catch (e) {
-            console.error(e);
-            res.status(500).send('Server Error');
+            const reviews = await getReviewsById(venueId);
+            console.log('Fetched reviews: ', reviews);
+
+            if(!reviews || !Array.isArray(reviews)) {
+                console.error('Reviews is not an array: ', reviews);
+                return res.status(500).send('Invalid reviews data');
+            }
+
+            res.render('venueId', {venue, reviews});
+        } catch (error) {
+            console.error('Error in /venue/:id route:', error);
+            next(error);
         }
     });
-
 
 // Start the server
     const PORT = process.env.PORT || 3000;

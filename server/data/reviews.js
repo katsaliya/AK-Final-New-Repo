@@ -1,30 +1,13 @@
 import { pool } from '../config/database.js';
-// MUKISA
 
-//changes made in the logic and code
-const getReviews = async (venueId) => {
-    try {
-        const res = await pool.query(
-            'SELECT * FROM reviews WHERE venue_id = $1 ORDER BY id ASC',
-            [venueId]
-        );
-        return res.rows; // Returns the first matching review or undefined if not found
-    } catch (error) {
-        console.error('Error fetching reviews under venue:', error);
-        throw error;
-    }
-};
 
-const getReviewById = async (venueId, reviewId) => {
+const getReviewsById = async (venueId) => {
     try {
-        const res = await pool.query(
-            'SELECT * FROM reviews WHERE venues_id = $1 AND id = $2',
-            [venueId, reviewId]
-        );
-        return res.rows[0]; // Returns the first matching review or undefined if not found
+        const res = await pool.query('SELECT * FROM reviews WHERE venue_id = $1', [venueId])
+        console.log('Reviews fetched: ', res.rows);
+        return res.rows;
     } catch (error) {
-        console.error('Error fetching review by ID under venue:', error);
-        throw error;
+        console.error('Error fetching reviews by venue ID:', error.message);
     }
 };
 
@@ -81,4 +64,4 @@ const getVenuesById = async (id) => {
     }
 };
 
-export {getReviewById, getReviews, createReview, deleteReview, getVenues, getVenuesById};
+export {getReviewsById, createReview, deleteReview, getVenues, getVenuesById};
