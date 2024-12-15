@@ -62,23 +62,22 @@ app.get(' ', async (req, res) => {
 
 // API endpoint to get all venues
 app.get('/nightlife', async (req, res) => {
+    // const venues = await getVenues();
+    // console.log(venues);
+    // res.render('nightlife', {venues});
     try {
-        const venues = await getVenues();  // Fetch all venues from the database
-        if (venues.length > 0) {
-            res.render('nightlife', {venues})
-            res.status(200).json(venues);  // Return the array of venues if found
-        } else {
-            res.status(404).json({error: 'No venues found'});  // If no venues are found
-        }
+        const venues = await getVenues();  // Ensure this returns an array
+        console.log('Venues: ', venues); // Debug log to see what is returned
+        res.render('nightlife', {venues});
     } catch (error) {
         console.error('Server error:', error);
-        res.status(500).json({error: 'Server error'});  // Handle server errors
+        res.status(404).send('Nightlife Server error' );  // Handle server errors
     }
 });
 
 app.get('/venueDetails', async (req, res) => {
         const venues = await getVenues();  // Fetch all venues from the database
-        res.render('venueDetails', {venues})
+        res.render('venueDetails', {venues});
 })
 
 

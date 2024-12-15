@@ -5,7 +5,7 @@ let venues = [
         name: "Vesuvio Cafe",
         address: "255 Columbus Ave, San Francisco, CA 94133",
         phone: "+1 415-362-3370",
-        photo: "/images/vesuvioCafe.png"
+        photo: "/images/vesuvioCafe.jpg"
     },
     {
         //id: 1,
@@ -26,35 +26,35 @@ let venues = [
         name: "Comet Club",
         address: "3111 Fillmore St, San Francisco, CA 94123",
         phone: "+1 415-567-5589",
-        photo: "/images/cometclub.png"
+        photo: "/images/cometclub.jpg"
     },
     {
         //id: 4,
         name: "Twin Peaks Tavern",
         address: "401 Castro St, San Francisco, CA 94114",
         phone: "+1 415-864-9470",
-        photo: "/images/twinpeaks.png"
+        photo: "/images/twinpeaks.jpg"
     },
     {
         //id: 5,
         name: "Beaux",
         address: "2344 Market St, San Francisco, CA 94114",
         phone: "+1 415-863-4027",
-        photo: "/images/beaux.png"
+        photo: "/images/beaux.jpg"
     },
     {
         //id: 6,
         name: "Trick Dog",
         address: "3010 20th St, San Francisco, CA 94110",
         phone: "+1 415-471-2999",
-        photo: "/images/TrickDog.png"
+        photo: "/images/TrickDog.jpg"
     },
     {
         //id: 7,
         name: "Public Works",
         address: "161 Erie St, San Francisco, CA 94103",
         phone: "+1 415-932-0955",
-        photo: "/images/publicWorks.png"
+        photo: "/images/publicWorks.jpg"
     }
 ];
 

@@ -51,20 +51,20 @@
     </div>
 
     <div class="nightlife-grid">
-        <% venues.forEach(venue => { %>
-            <div class="place" data-id="<%= venue.id%>">
-                <div class="place-img">
-                    <img src="<%= venue.photo %>" alt="<%= venue.name %>">
-                </div>
-                <div class="place-dets">
-                    <h4><%= venue.name %></h4>
-                    <div class="place-info">
-                        <p><%= venue.address %></p>
-                        <p><%= venue.phone %></p>
-                    </div>
+        <% venues.forEach(function (venue, index) { // loop through each venue %>
+        <a href="/venue/<%= venue.id %>" class="place" data-id="<%= venue.id %>">
+            <div class="place-img">
+                <img src="<%= venue.photo %>" alt="<%= venue.name %>">
+            </div>
+            <div class="place-dets">
+                <h4><%= venue.name %></h4>
+                <div class="place-info">
+                    <p><%= venue.address %></p>
+                    <p><%= venue.phone %></p>
                 </div>
             </div>
-        <% }) %>
+        </a>
+        <% }); %>
     </div>
 </main>
 <footer class="footer">

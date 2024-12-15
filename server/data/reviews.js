@@ -61,13 +61,10 @@ const deleteReview = async(venueId, reviewId) => {
 
 const getVenues = async () => {
     try {
-        const res = await pool.query(
-            'SELECT * FROM venues ORDER BY ID ASC',
-        );
-        return res.rows[0]; // Returns the venue if found, otherwise undefined
+        const results = await pool.query('SELECT * FROM venues ORDER BY id ASC');
+        return results.rows; // Returns the venue if found, otherwise undefined
     } catch (error) {
-        console.error('Error fetching venues:', error);
-        throw error;
+        console.error(error.message)
     }
 };
 
