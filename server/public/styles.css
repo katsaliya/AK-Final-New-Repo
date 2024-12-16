@@ -407,6 +407,7 @@ input::placeholder {
     font-family: "Helvetica Neue";
     font-weight: bold;
     padding-bottom: 0;
+    user-select: none;
 }
 
 .stars {

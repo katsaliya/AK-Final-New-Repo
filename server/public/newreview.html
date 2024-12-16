@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write a Review - 5Star</title>
-    <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="stylesheet" href="styles.css">
-    <!--    <script src="/scripts/header.js" defer></script>-->
+    <link rel="icon" type="image/png" href="/images/logo.png">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/scripts/reviewPost.js" defer></script>
 </head>
 <body>
 
@@ -14,7 +14,7 @@
 <nav class="red-nav">
     <!-- 5STAR Logo -->
     <div class="logo">
-        <a href="/"><img src="images/5stars.png" alt="Logo"></a>
+        <a href="/"><img src="/images/5stars.png" alt="Logo"></a>
     </div>
 
     <!-- Login, Signup, New Reviews List -->
@@ -24,7 +24,7 @@
     </ul>
 </nav>
 
-<div class="form-container">
+<form id="review-form" data-venue-id="<%= venue.id %>">
 
     <div class="where-form">
         <div class="text">
@@ -35,7 +35,7 @@
         <div class="search-where">
             <div class="dropdown">
                 <label for="styledInput"></label>
-                <input id="styledInput" autoComplete="on" list="suggestions" placeholder="CLUB OR BAR NAME ">
+                <input id="styledInput" autoComplete="on" list="suggestions" name="venue.name" placeholder="CLUB OR BAR NAME ">
                 <datalist id="suggestions">
                     <option data-id="1">Vesuvio Cafe</option>
                     <option data-id="2">The Saloon</option>
@@ -50,26 +50,26 @@
         </div>
 
         <div class="star-rating">
-            <div class="star-title">
-                SELECT YOUR RATING
-            </div>
+            <div class="star-title">SELECT YOUR RATING</div>
             <div class="stars">
-                <button class="star">&#9734;</button>
-                <button class="star">&#9734;</button>
-                <button class="star">&#9734;</button>
-                <button class="star">&#9734;</button>
-                <button class="star">&#9734;</button>
+                <button type="button" class="star">&#9734;</button>
+                <button type="button" class="star">&#9734;</button>
+                <button type="button" class="star">&#9734;</button>
+                <button type="button" class="star">&#9734;</button>
+                <button type="button" class="star">&#9733;</button>
             </div>
         </div>
+
         <div class="describe">
             <label for="description">Sooo... </label>
             <textarea id="description" name="description" rows="12" placeholder="LET US KNOW HOW IT'S GOING!"></textarea>
         </div>
+
         <div class="post">
-            <a href="/venue/<%= venue.id %>" class="place" data-id="<%= venue.id %>"><button type="submit">POST YOUR REVIEW</button></a>
+            <button type="submit">POST YOUR REVIEW</button>
         </div>
     </div>
-</div>
+</form>
 
 <footer class="footer">
     <p>&#9734;&#9734;&#9734;&#9734;&#9734; MADE BY AND FOR GATORS &hearts; </p>
