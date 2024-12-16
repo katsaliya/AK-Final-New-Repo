@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--    <meta charset="UTF-8">-->
-    <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <title>Nightlife! - 5Star</title>
-    <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="/images/logo.png">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
@@ -13,7 +11,7 @@
 <nav class="red-nav">
     <!-- 5STAR Logo -->
     <div class="logo">
-        <a href="/"><img src="images/5stars.png" alt="Logo"></a>
+        <a href="/"><img src="/images/5stars.png" alt="Logo"></a>
     </div>
 
     <!-- Dual Dropdown Search Bar -->
@@ -35,7 +33,7 @@
             </select>
         </div>
         <button id="search-button" class="search-button">
-            <a href="/nightlife"><img src="images/search.png" alt="search-icon"></a>
+            <a href="/nightlife"><img src="/images/search.png" alt="search-icon"></a>
         </button>
     </div>
 
@@ -45,9 +43,10 @@
         <li class="sign-up"><a href="/sign-up">Sign Up</a></li>
     </ul>
 </nav>
+
 <main>
     <div class="venue-details">
-        <img class="venue-details-img" src="<%= venue.photo %>">
+        <img class="venue-img" src="<%= venue.photo %>">
         <div class="venue-info">
             <h1><%= venue.name %></h1>
             <h2><%= venue.address %></h2>
@@ -62,7 +61,9 @@
                 <% } %>
             </div>
         </div>
+    </div>
 </main>
+
 <footer class="footer">
     <p>&#9734;&#9734;&#9734;&#9734;&#9734; MADE BY AND FOR GATORS &hearts; </p>
 </footer>
