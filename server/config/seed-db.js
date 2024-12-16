@@ -5,56 +5,56 @@ let venues = [
         name: "Vesuvio Cafe",
         address: "255 Columbus Ave, San Francisco, CA 94133",
         phone: "+1 415-362-3370",
-        photo: "..public/images/vesuvioCafe.jpg"
+        photo: "./images/vesuvioCafe.jpg"
     },
     {
         //id: 1,
         name: "The Saloon",
         address: "1232 Grant Ave, San Francisco, CA 94133",
         phone: "+1 415-989-7666",
-        photo: "..public/images/saloon.jpg"
+        photo: "./images/saloon.jpg"
     },
     {
         //id: 2,
         name: "The Internal at Long Now",
         address: "Fort Mason Center, 2 Marina Blvd, San Francisco, CA 94123",
         phone: "+1 415-561-6582",
-        photo: "..public/images/internal.jpg"
+        photo: "./images/internal.jpg"
     },
     {
         //id: 3,
         name: "Comet Club",
         address: "3111 Fillmore St, San Francisco, CA 94123",
         phone: "+1 415-567-5589",
-        photo: "..public/images/cometclub.jpg"
+        photo: "./images/cometclub.jpg"
     },
     {
         //id: 4,
         name: "Twin Peaks Tavern",
         address: "401 Castro St, San Francisco, CA 94114",
         phone: "+1 415-864-9470",
-        photo: "..public/images/twinpeaks.jpg"
+        photo: "./images/twinpeaks.jpg"
     },
     {
         //id: 5,
         name: "Beaux",
         address: "2344 Market St, San Francisco, CA 94114",
         phone: "+1 415-863-4027",
-        photo: "..public/images/beaux.jpg"
+        photo: "./images/beaux.jpg"
     },
     {
         //id: 6,
         name: "Trick Dog",
         address: "3010 20th St, San Francisco, CA 94110",
         phone: "+1 415-471-2999",
-        photo: "..public/images/TrickDog.jpg"
+        photo: "./images/TrickDog.jpg"
     },
     {
         //id: 7,
         name: "Public Works",
         address: "161 Erie St, San Francisco, CA 94103",
         phone: "+1 415-932-0955",
-        photo: "..public/images/publicWorks.jpg"
+        photo: "./images/publicWorks.jpg"
     }
 ];
 
